@@ -29,12 +29,20 @@ import DiffMatchPatchDemo from './components/DiffMatchPatchDemo.vue'
 import Diff2HtmlDemo from './components/Diff2HtmlDemo.vue'
 import MonacoDiffDemo from './components/MonacoDiffDemo.vue'
 import CustomHtmlDiffDemo from './components/CustomHtmlDiffDemo.vue'
+import JsDiffDemo from './components/JsDiffDemo.vue'
+import FastDiffDemo from './components/FastDiffDemo.vue'
+import HtmlDiffJsDemo from './components/HtmlDiffJsDemo.vue'
+import JsonDiffPatchDemo from './components/JsonDiffPatchDemo.vue'
 
 const tabs = [
   { id: 'diff-match-patch', name: 'diff-match-patch' },
   { id: 'diff2html', name: 'diff2html' },
   { id: 'monaco', name: 'Monaco Editor' },
-  { id: 'custom', name: '自定义 HTML Diff' }
+  { id: 'custom', name: '自定义 HTML Diff' },
+  { id: 'jsdiff', name: 'diff' },
+  { id: 'fast-diff', name: 'fast-diff' },
+  { id: 'htmldiff-js', name: 'HTML Diff' },
+  { id: 'jsondiffpatch', name: 'jsondiffpatch' }
 ]
 
 const activeTab = ref('diff-match-patch')
@@ -43,7 +51,11 @@ const components = {
   'diff-match-patch': DiffMatchPatchDemo,
   'diff2html': Diff2HtmlDemo,
   'monaco': MonacoDiffDemo,
-  'custom': CustomHtmlDiffDemo
+  'custom': CustomHtmlDiffDemo,
+  'jsdiff': JsDiffDemo,
+  'fast-diff': FastDiffDemo,
+  'htmldiff-js': HtmlDiffJsDemo,
+  'jsondiffpatch': JsonDiffPatchDemo
 }
 
 const currentComponent = computed(() => components[activeTab.value])

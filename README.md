@@ -9,6 +9,10 @@
 - **diff-match-patch** - Google 开源的文本差异算法库
 - **diff2html** - 强大的 diff 可视化库
 - **Monaco Editor** - VS Code 编辑器核心，支持 diff 模式
+- **jsdiff** - 功能强大的 JavaScript 文本差异库
+- **fast-diff** - 高性能的文本差异算法库
+- **htmldiff-js** - 专门为 HTML 内容设计的差异对比库
+- **jsondiffpatch** - JSON 对象深度差异对比库
 
 ## 项目结构
 
@@ -19,7 +23,11 @@ rich-text-diff-demo/
 │   │   ├── DiffMatchPatchDemo.vue    # diff-match-patch 演示
 │   │   ├── Diff2HtmlDemo.vue         # diff2html 演示
 │   │   ├── MonacoDiffDemo.vue        # Monaco Editor diff 演示
-│   │   └── CustomHtmlDiffDemo.vue    # 自定义 HTML diff 演示
+│   │   ├── CustomHtmlDiffDemo.vue    # 自定义 HTML diff 演示
+│   │   ├── JsDiffDemo.vue            # jsdiff 演示
+│   │   ├── FastDiffDemo.vue          # fast-diff 演示
+│   │   ├── HtmlDiffJsDemo.vue        # htmldiff-js 演示
+│   │   └── JsonDiffPatchDemo.vue     # jsondiffpatch 演示
 │   ├── App.vue                       # 主应用组件
 │   ├── main.js                       # 入口文件
 │   └── style.css                     # 全局样式
@@ -149,17 +157,101 @@ diffEditor.setModel({
 - 需要自定义展示效果
 - 特殊业务需求
 
+### 5. jsdiff
+
+**特点：**
+- 功能强大的 JavaScript 文本差异库
+- 支持多种对比模式（字符、词、行、句子）
+- 提供丰富的 API 和配置选项
+- 可以处理 HTML 内容对比
+
+**适用场景：**
+- 需要多种对比粒度的场景
+- 文本和代码对比
+- HTML 内容对比
+
+**使用示例：**
+```javascript
+import { diffWords, diffChars, diffLines } from 'diff'
+
+const diffs = diffWords(text1, text2)
+```
+
+### 6. fast-diff
+
+**特点：**
+- 高性能的文本差异算法库
+- 专注于速度和效率
+- 适合处理大量文本对比
+- 支持字符级和词级对比
+
+**适用场景：**
+- 大量文本对比场景
+- 对性能要求较高的应用
+- 实时文本对比
+
+**使用示例：**
+```javascript
+import diff from 'fast-diff'
+
+const diffs = diff(text1, text2)
+```
+
+### 7. htmldiff-js
+
+**特点：**
+- 专门为 HTML 内容设计的差异对比库
+- 能够智能识别 HTML 结构
+- 保留标签完整性
+- 提供更准确的 HTML 差异展示
+
+**适用场景：**
+- 富文本 HTML 内容对比
+- 需要保留 HTML 结构的场景
+- 文档版本对比
+
+**使用示例：**
+```javascript
+import htmldiff from 'htmldiff-js'
+
+const diff = htmldiff(html1, html2)
+```
+
+### 8. jsondiffpatch
+
+**特点：**
+- 强大的 JSON 对象差异对比库
+- 支持深度对象对比
+- 可以将差异转换为可视化 HTML
+- 适合结构化数据对比
+
+**适用场景：**
+- JSON 对象对比
+- 结构化数据对比
+- HTML DOM 结构对比
+- 配置文件和数据结构对比
+
+**使用示例：**
+```javascript
+import jsondiffpatch from 'jsondiffpatch'
+
+const delta = jsondiffpatch.diff(obj1, obj2)
+const html = jsondiffpatch.formatters.html.format(delta, obj1)
+```
+
 ## 技术对比
 
-| 特性 | diff-match-patch | diff2html | Monaco Editor | 自定义 HTML Diff |
-|------|-----------------|-----------|--------------|-----------------|
-| 纯文本对比 | ✅ | ✅ | ✅ | ✅ |
-| HTML 对比 | ⚠️ | ⚠️ | ⚠️ | ✅ |
-| 可视化效果 | 基础 | 优秀 | 专业 | 可定制 |
-| 性能 | 优秀 | 良好 | 良好 | 优秀 |
-| 代码体积 | 小 | 中等 | 大 | 小 |
-| 学习成本 | 低 | 中 | 中 | 中 |
-| 定制性 | 中 | 中 | 低 | 高 |
+| 特性 | diff-match-patch | diff2html | Monaco Editor | 自定义 HTML Diff | jsdiff | fast-diff | htmldiff-js | jsondiffpatch |
+|------|-----------------|-----------|--------------|-----------------|--------|-----------|-------------|---------------|
+| 纯文本对比 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ |
+| HTML 对比 | ⚠️ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| JSON/对象对比 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| 可视化效果 | 基础 | 优秀 | 专业 | 可定制 | 良好 | 基础 | 良好 | 优秀 |
+| 性能 | 优秀 | 良好 | 良好 | 优秀 | 良好 | 优秀 | 良好 | 良好 |
+| 代码体积 | 小 | 中等 | 大 | 小 | 小 | 很小 | 小 | 中等 |
+| 学习成本 | 低 | 中 | 中 | 中 | 低 | 低 | 低 | 中 |
+| 定制性 | 中 | 中 | 低 | 高 | 高 | 中 | 中 | 中 |
+| HTML结构保留 | ❌ | ❌ | ❌ | ⚠️ | ❌ | ❌ | ✅ | ✅ |
 
 ## 开发说明
 
