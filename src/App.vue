@@ -33,6 +33,8 @@ import JsDiffDemo from './components/JsDiffDemo.vue'
 import FastDiffDemo from './components/FastDiffDemo.vue'
 import HtmlDiffJsDemo from './components/HtmlDiffJsDemo.vue'
 import JsonDiffPatchDemo from './components/JsonDiffPatchDemo.vue'
+import DomRecursiveDiffDemo from './components/DomRecursiveDiffDemo.vue'
+import RichEditorDiffDemo from './components/RichEditorDiffDemo.vue'
 
 const tabs = [
   { id: 'diff-match-patch', name: 'diff-match-patch' },
@@ -42,7 +44,9 @@ const tabs = [
   { id: 'jsdiff', name: 'diff' },
   { id: 'fast-diff', name: 'fast-diff' },
   { id: 'htmldiff-js', name: 'HTML Diff' },
-  { id: 'jsondiffpatch', name: 'jsondiffpatch' }
+  { id: 'jsondiffpatch', name: 'jsondiffpatch' },
+  { id: 'dom-recursive', name: 'DOM 递归对比' },
+  { id: 'rich-editor', name: 'Quill 编辑器对比' }
 ]
 
 const activeTab = ref('diff-match-patch')
@@ -55,7 +59,9 @@ const components = {
   'jsdiff': JsDiffDemo,
   'fast-diff': FastDiffDemo,
   'htmldiff-js': HtmlDiffJsDemo,
-  'jsondiffpatch': JsonDiffPatchDemo
+  'jsondiffpatch': JsonDiffPatchDemo,
+  'dom-recursive': DomRecursiveDiffDemo,
+  'rich-editor': RichEditorDiffDemo
 }
 
 const currentComponent = computed(() => components[activeTab.value])
