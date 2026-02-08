@@ -3,8 +3,8 @@
     <div class="header">
       <h1>富文本对比技术演示</h1>
       <p>
-        本演示项目展示了多种成熟的富文本对比前端技术方案，包括 diff-match-patch、diff2html、Monaco Editor 等。
-        每种技术都有其特点和适用场景，可以根据项目需求选择合适的方案。
+        本演示项目展示了多种成熟的富文本对比前端技术方案，包括 diff-match-patch、diff2html、Monaco Editor、htmldiff.js 等。
+        每种技术都有其特点和适用场景，可以根据项目需求选择合适的方案。htmldiff.js 特别适合在两个 v-html 容器中实现 HTML 内容的对比效果。
       </p>
     </div>
 
@@ -43,7 +43,7 @@ const tabs = [
   { id: 'custom', name: '自定义 HTML Diff' },
   { id: 'jsdiff', name: 'diff' },
   { id: 'fast-diff', name: 'fast-diff' },
-  { id: 'htmldiff-js', name: 'HTML Diff' },
+  { id: 'htmldiff-js', name: 'htmldiff.js (v-html 对比)' },
   { id: 'jsondiffpatch', name: 'jsondiffpatch' },
   { id: 'dom-recursive', name: 'DOM 递归对比' },
   { id: 'rich-editor', name: 'Quill 编辑器对比' }

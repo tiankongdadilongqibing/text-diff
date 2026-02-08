@@ -9,6 +9,11 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['monaco-editor']
+  },
+  resolve: {
+    alias: {
+      'htmldiff': 'htmldiff/src/htmldiff.js'
+    }
   }
 })
 
