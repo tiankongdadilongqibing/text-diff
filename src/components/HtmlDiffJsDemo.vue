@@ -53,8 +53,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-// htmldiff 使用 CommonJS 导出，通过 Vite alias 配置导入
-import htmldiff from 'htmldiff'
+import localHtmlDiff from '../utils/localHtmlDiff'
 
 const oldHtml = ref('')
 const newHtml = ref('')
@@ -320,9 +319,9 @@ const compareHtml = () => {
   }
 
   try {
-    // 使用 htmldiff.js 进行 HTML 内容对比
-    // htmldiff 会返回一个包含 <ins> 和 <del> 标签的 HTML 字符串
-    diffResult.value = htmldiff(oldHtml.value, newHtml.value)
+    // 使用本地实现的 HTML diff 函数进行内容对比
+    // 返回一个包含 <ins> 和 <del> 标签的 HTML 字符串
+    diffResult.value = localHtmlDiff(oldHtml.value, newHtml.value)
   } catch (error) {
     console.error('HTML diff error:', error)
     alert('HTML 对比失败，请检查输入的 HTML 内容是否有效')
